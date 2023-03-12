@@ -4,10 +4,9 @@ import FoodTruckDate from "./FoodTruckDate";
 import Card from "../UI/Card";
 
 const FoodTruckItem= (props) => {
-  const [title, setTitle] = useState(props.title);
+  const [name, setName] = useState(props.name);
   const clickHandler = () => {
-    setTitle("updated");
-    console.log(title);
+    setName("updated");
   };
 
   return (
@@ -15,7 +14,7 @@ const FoodTruckItem= (props) => {
       <Card className={"food-truck-item"}>
         <FoodTruckDate date={props.date}></FoodTruckDate>
         <div className={"food-truck-item__description"}>
-          <h2>{props.title}</h2>
+          <h2>{props.name}</h2>
         </div>
         <button onClick={clickHandler}>change state</button>
       </Card>

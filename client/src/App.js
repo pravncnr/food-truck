@@ -1,26 +1,70 @@
-import {useState} from "react";
+import {useState, useCallback,useEffect} from "react";
 import FoodTrucks from './components/FoodTrucks/FoodTrucks';
 import NewFoodTruck from "./components/NewFoodTruck/NewFoodTruck";
 
 import "./App.css"
 
-const DUMMY_FOOD_TRUCKS = [{
-  id: 'e1', title: 'Toilet Paper', date: new Date(2020, 7, 14),
-}, {
-  id: 'e2', title: 'New TV', date: new Date(2021, 2, 12)
-}, {
-  id: 'e3', title: 'Car Insurance', date: new Date(2021, 2, 28),
-}, {
-  id: 'e4', title: 'New Desk (Wooden)', date: new Date(2021, 5, 12),
-},];
-
+const SERVER_URL = 'http://localhost:9000'
 
 const App = () => {
-  const [foodTrucks, setFoodTrucks] = useState(DUMMY_FOOD_TRUCKS);
-  const addFoodTruckHandler = (foodTruck) => {
-    setFoodTrucks((prevFoodTrucks) => {
-      return [foodTruck, ...prevFoodTrucks];
-    });
+  const [foodTrucks, setFoodTrucks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchFoodTrucksHandler = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(SERVER_URL+'/food-truck');
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+      const data = await response.json();
+      const loadedFoodTrucks = [];
+      for (const truck of data) {
+        loadedFoodTrucks.push({
+          id: truck.id,
+          name: truck.name,
+          date: new Date(truck.date),
+        });
+      }
+      setFoodTrucks(loadedFoodTrucks);
+    } catch (error) {
+      setError(error.message);
+    }
+    setIsLoading(false);
+  }, []);
+
+  useEffect(() => {
+    fetchFoodTrucksHandler();
+  }, [fetchFoodTrucksHandler]);
+
+  const addFoodTruckHandler = async (foodTruck) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      let body = {name : foodTruck.name,
+      date: foodTruck.date.toISOString().slice(0, 10)};
+      const response = await fetch(SERVER_URL+'/food-truck', {
+          method: 'POST',
+          body: JSON.stringify(body),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+      if (!response.ok) {
+        throw new Error('Something went wrong!');
+      }
+      const data = await response.json();
+      data.date =  new Date(data.date);
+      setFoodTrucks((prevFoodTrucks) => {
+        return [data, ...prevFoodTrucks];
+      });
+    } catch (error) {
+      setError(error.message);
+    }
+    setIsLoading(false);
   };
   return (
     <div className={"App-body"}>

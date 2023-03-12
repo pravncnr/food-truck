@@ -8,8 +8,7 @@ const NewFoodTruck = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const saveFoodTruckDataHandler = (enteredFoodTruckData) => {
     const foodTruckData = {
-      ...enteredFoodTruckData,
-      id: Math.random().toString()
+      ...enteredFoodTruckData
     };
     console.log(foodTruckData);
     props.onAddFoodTruck(foodTruckData);

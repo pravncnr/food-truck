@@ -16,7 +16,9 @@ class FoodTruckDAO {
   }
 
   async createFoodTruck(foodTruck) {
-    const result = await db.query("INSERT INTO food_truck (name, date) VALUES ($1, $2)", [foodTruck.name, foodTruck.date]);
+    const result = await db.query("INSERT INTO food_truck (name, date) VALUES ($1, $2) RETURNING id", [foodTruck.name, foodTruck.date]);
+    let id =  result.rows[0]
+    return {...foodTruck, ...id}
   }
 
   async updateFoodTruck(foodTruck) {

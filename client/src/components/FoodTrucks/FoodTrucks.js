@@ -12,14 +12,14 @@ const FoodTrucks = (props) => {
   };
 
   const filteredFoodTrucks = props.items.filter(foodTruck => {
-    return filteredYear === foodTruck.date.toISOString().slice(0, 10);
+    return true;//filteredYear === foodTruck.date.toISOString().slice(0, 10);
   });
 
 
   return (
     <div>
     <Card className="food-trucks">
-      <FoodTrucksFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
+      {/*<FoodTrucksFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />*/}
       <FoodTrucksList items={filteredFoodTrucks} />
     </Card>
     </div>

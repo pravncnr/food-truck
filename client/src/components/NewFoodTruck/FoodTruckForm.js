@@ -4,10 +4,10 @@ import {useState} from "react";
 
 const FoodTruckForm = (props) => {
 
-  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredName, setEnteredTitle] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  const titleChangeHandler = (event) => {
+  const nameChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
 
@@ -18,7 +18,7 @@ const FoodTruckForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     const foodTruckData = {
-      title: enteredTitle,
+      name: enteredName,
       date: new Date(enteredDate)
     };
     console.log(foodTruckData);
@@ -29,8 +29,8 @@ const FoodTruckForm = (props) => {
 return <form onSubmit={submitHandler}>
   <div className={'new-food-truck__controls'}>
     <div className={'new-food-truck__control'}>
-      <label>Title</label>
-      <input type="text" onChange={titleChangeHandler} value={enteredTitle}/>
+      <label>Food Truck Name</label>
+      <input type="text" onChange={nameChangeHandler} value={enteredName}/>
     </div>
     <div className={'new-food-truck__control'}>
       <label>Date</label>

@@ -10,7 +10,7 @@ const FoodTrucksList = (props) => {
   return (<ul className={"food-trucks-list"}>
     {props.items.map((foodTruck) => (<FoodTruckItem
         key={foodTruck.id}
-        title={foodTruck.title}
+        name={foodTruck.name}
         date={foodTruck.date}/>))}
   </ul>);
 
