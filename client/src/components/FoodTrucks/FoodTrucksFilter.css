@@ -22,3 +22,31 @@
     font-weight: bold;
     border-radius: 6px;
 }
+
+.food-trucks-filter button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border: 1px solid #a892ee;
+    background-color: #a892ee;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+}
+
+.food-trucks-filter button:hover,
+.food-trucks-filter button:active {
+    background-color: #510674;
+    border-color: #510674;
+}
+
+.food-trucks-filter button.alternative {
+    color: #220131;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.food-trucks-filter button.alternative:hover,
+.food-trucks-filter button.alternative:active {
+    background-color: #ddb3f8;
+}
