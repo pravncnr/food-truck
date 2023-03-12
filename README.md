@@ -18,19 +18,19 @@ Start client in a new terminal
 `cd client && npm start`
 
 1. Home Page
-![](/Users/praveen.surendran/Desktop/Screenshot 2023-03-13 at 2.21.27 AM.png)
+   ![](https://github.com/pravncnr/food-truck/tree/main//screenshots/Screenshot 2023-03-13 at 2.21.27 AM.png)
 
 2. View all food trucks for today
-![](/Users/praveen.surendran/Desktop/Screenshot 2023-03-13 at 2.21.51 AM.png)
+   ![](https://github.com/pravncnr/food-truck/tree/main//screenshots/Screenshot 2023-03-13 at 2.21.51 AM.png)
 
 3. All Food Trucks
-![](/Users/praveen.surendran/Desktop/Screenshot 2023-03-13 at 2.22.12 AM.png)
+   ![](https://github.com/pravncnr/food-truck/tree/main//screenshots/Screenshot 2023-03-13 at 2.22.12 AM.png)
 
 4. form to add new food truck
-![](/Users/praveen.surendran/Desktop/Screenshot 2023-03-13 at 2.22.42 AM.png)
+   ![](https://github.com/pravncnr/food-truck/tree/main//screenshots/Screenshot 2023-03-13 at 2.22.42 AM.png)
 
 5. Newly added food truck
-![](/Users/praveen.surendran/Desktop/Screenshot 2023-03-13 at 2.23.07 AM.png)
+   ![](https://github.com/pravncnr/food-truck/tree/main//screenshots/Screenshot 2023-03-13 at 2.23.07 AM.png)
 
 6. Edit Existing food truck
-![](/Users/praveen.surendran/Desktop/Screenshot 2023-03-13 at 2.24.34 AM.png)
+   ![](https://github.com/pravncnr/food-truck/tree/main//screenshots/Screenshot 2023-03-13 at 2.24.34 AM.png)
